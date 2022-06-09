@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun  7 20:37:13 2022
+
+@author: gabriel00724
+"""
+#Gcd of 2 and 10
+
+
+def recurse_gcd (a, b):
+    '''
+    Iteratively compute for the gcd of two numbers a and b
+
+    '''
+    max = a
+    min = b
+    
+    if (b > a):
+        max = b
+        min = a
+        
+    if min == 0:
+        return max
+    elif min == 1:
+        return 1
+    else:
+        return recurse_gcd(min, max % min)
+    
+    
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+print()
+print("The GCD of the two numbers is " + str(recurse_gcd(a,b)) + ".")

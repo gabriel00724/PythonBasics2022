@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun  7 21:14:41 2022
+
+@author: gabriel00724
+"""
+def toChars(testString):
+    
+    testString = str(testString).lower()
+    checkString = ""
+    for char in testString:
+        if char in "abcdefghijklmnopqrstuvwxyz":
+            checkString += char
+    return checkString
+
+def recurse_isPalindrome(testString):
+    
+    #check if the string is already end
+    if len(testString) == 1 or len(testString) == 0:
+        return True
+    
+    if testString[0] == testString[len(testString)-1]:
+        testString = testString[1:len(testString)-1]
+        return recurse_isPalindrome(testString)
+    else:
+        return False
+
+x = input("Input word to check: ")
+print(recurse_isPalindrome(toChars(x)))
